@@ -1,0 +1,308 @@
+.footer {
+  color: #8f8f8f;
+  background-color: #fff;
+
+  &-container {
+    padding: 80px 150px;
+    background-color: #222;
+
+    @include res--desktop {
+      padding: 80px 8%;
+    }
+
+    @include res--laptop {
+      padding: 5%;
+    }
+
+    @include res--mobileSM {
+      padding: 10% 0%;
+    }
+  }
+
+  &__info {
+    &:after {
+      @include floatClear;
+    }
+
+    @include res--mobileSM {
+      padding: 0 5%;
+    }
+  }
+
+  &__btn-container {
+    float: right;
+
+    &:after {
+      @include floatClear;
+    }
+
+    @include res--laptopSM {
+      float: none;
+      text-align: center;
+      padding-bottom: 5%;
+    }
+
+  }
+
+  &__addr-container {
+    float: left;
+
+    @include res--laptopSM {
+      float: none;
+      text-align: center;
+    }
+
+    @include res--mobileSM {
+      text-align: left;
+    }
+  }
+
+  &__btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 20px 108px 20px 40px;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 3px;
+    background-position: right 20px top 50%;
+    background-repeat: no-repeat;
+    transition: background 300ms,
+      color 300ms,
+      border 300ms;
+
+    // A/S 신청 버튼
+    &--as {
+      border-color: #fff;
+      background-color: #fff;
+      background-size: 14px 15px;
+      background-image: icon(arrow-right, "222222");
+
+      &:hover {
+        color: #fff;
+        background-color: transparent;
+        background-image: icon(arrow-right, "ffffff");
+      }
+    }
+
+    // 프로젝트 의뢰 버튼
+    &--req {
+      color: #fff;
+      border-color: $blue;
+      background-color: $blue;
+      background-size: 24px 26px;
+      background-image: icon(monitor, "f8f8f8");
+
+      &:hover {
+        color: $yellow;
+        background-color: transparent;
+        border-color: $yellow;
+        background-image: icon(monitor, "fffc00");
+      }
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    //반응형
+    @include res--laptop {
+      padding: 15px 78px 15px 30px;
+    }
+
+    @include res--laptopSM {
+      width: 190px;
+      padding: 15px 0;
+      background-image: none;
+    }
+
+    @include res--tablet {
+      width: 137px;
+      height: 48px;
+      padding: 12px 0 13.5px;
+      font-size: 13px;
+    }
+
+    @include res--mobileSM {
+      width: 48%;
+      margin-left: 2%;
+      margin-right: 0;
+      font-size: 11px;
+    }
+
+    &:hover {
+      @include res--laptopSM {
+        background-image: none;
+      }
+    }
+  }
+
+  &__addr {
+    display: inline-block;
+    text-align: left;
+
+    @include res--mobileSM {
+      display: block;
+      width: 100%;
+
+      .br {
+        display: none;
+      }
+
+      .br-mo {
+        display: block;
+      }
+    }
+  }
+
+  &__addr-office {
+    //오피스 타이틀
+    display: block;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    font-weight: 800;
+    color: rgba(255, 255, 255, .8);
+  }
+
+  &__addr-text {
+    //주소지
+    padding: 14px 0;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+    color: #8f8f8f;
+
+    @include res--tablet {
+      font-size: 12px;
+    }
+
+    @include res--mobile {
+      font-size: 11px;
+      padding: 10px 0px;
+      line-height: 1.6;
+    }
+  }
+
+  &__addr-map {
+    //지도보기
+    display: block;
+    font-size: 0;
+    width: 16px;
+    height: 18px;
+
+    &:hover:after {
+      opacity: 1;
+    }
+
+    &:after {
+      opacity: 0.5;
+      display: block;
+      content: '';
+      width: inherit;
+      height: inherit;
+      background-image: icon(map, "f8f8f8");
+      background-repeat: no-repeat;
+      background-position: 50%;
+      transition: opacity 300ms;
+    }
+  }
+
+  &__social-list {
+    position: relative;
+    margin-top: 80px;
+    font-size: 0;
+    text-align: center;
+    padding: 60px 0 37px;
+    border-top: 1px solid #383838;
+    border-top-color: rgba(255, 255, 255, .1);
+
+    @include res--laptop {
+      margin-top: 5%;
+      padding: 3% 0;
+    }
+
+    @include res--mobileSM {
+      margin-top: 6%;
+      padding: 6% 0;
+    }
+
+  }
+
+  &__social-item {
+    display: inline-block;
+    margin: 0 0 0 15px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__social-link {
+    display: block;
+    font-size: 0;
+    width: 32px;
+    height: 32px;
+
+    &:after {
+      opacity: 0.5;
+      display: block;
+      content: '';
+      width: inherit;
+      height: inherit;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: 100%;
+      transition: opacity 300ms;
+    }
+
+    &[class$=--insta]:after {
+      background-image: icon(social-instagram, "f8f8f8");
+    }
+
+    &[class$=--fb]:after {
+      background-image: icon(social-facebook, "f8f8f8");
+    }
+
+    &[class$=--tw]:after {
+      background-image: icon(social-twitter, "f8f8f8");
+    }
+
+    &:hover:after {
+      opacity: 1;
+    }
+
+    @include res--tablet {
+      width: 29px;
+      height: 29px;
+    }
+
+    @include res--mobileSM {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &__copyright {
+    //카피라이트 부분
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    text-align: center;
+    font-weight: 500;
+    color: #8f8f8f;
+
+    .br-mo {
+      display: none;
+    }
+
+    @include res--mobileSM {
+      .br-mo {
+        display: block;
+      }
+    }
+
+  }
+
+
+}
