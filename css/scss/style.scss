@@ -1,17 +1,15 @@
-/*! style.css */
+@import "helpers/_variables";
+@import "helpers/_mixins";
+@import "helpers/_mediaQueries";
 
-@import "helpers/variables";
-@import "helpers/mixins";
-@import "helpers/mediaQueries";
-
-@import "base/font";
-@import "base/reset";
-@import "base/common";
-@import "base/animation";
-
+@import "base/_reset";
 @import "layout/_main";
 
 /*! 
-  ...
-  from Nana with 💖
+
+  *
+  style.css 
+  Made by Nana with 💖
+  *
+
 */
