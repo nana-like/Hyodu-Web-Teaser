@@ -1,8 +1,6 @@
 // Font
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-
-
 body {
   background-color: #f4d1c7;
   padding: 0;
@@ -17,7 +15,7 @@ body {
   overflow-y: auto;
   width: 100vw;
   height: 100vh;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   @include flexbox();
   @include flex-direction(column);
   @include align-items(center);
@@ -80,7 +78,6 @@ body {
   top: 4px;
 
   svg {
-
     transform: scaleY(0.95);
   }
 }
@@ -111,7 +108,6 @@ body {
   .logo-text {
     @include text-hidden;
   }
-
 
   #hyoduSVG {
     z-index: 10;
@@ -156,7 +152,6 @@ body {
     @include res--laptop {
       font-size: 19px;
     }
-
   }
 
   @keyframes show {
@@ -199,6 +194,7 @@ body {
   left: 0;
   width: 100%;
   @include flexbox();
+  @include flex-direction(column);
   @include justify-content(center);
   @include align-items(center);
   font-size: 11px;
@@ -210,6 +206,7 @@ body {
 
   @include res--laptop {
     font-size: 13px;
+    @include flex-direction(row);
   }
 
   .svg-vl {
@@ -217,7 +214,6 @@ body {
     height: 15px;
 
     @include res--tablet {
-      margin-top: 2px;
       width: 100px;
       height: 18px;
     }
@@ -235,8 +231,13 @@ body {
     display: block;
     letter-spacing: 0.22px;
 
+    @include res--tablet {
+      letter-spacing: 0.35px;
+    }
+
     &.link-vl {
       opacity: 0.7;
+      height: 14px;
     }
 
     &:hover {
@@ -244,43 +245,98 @@ body {
     }
   }
 
+  .mail-container {
+    @include flexbox();
+    margin-top: 8px;
+    height: 14px;
+  }
+
   .footer-list {
+    // display: inline-block;
     position: relative;
-    margin-left: 19px;
 
-    @include res--tablet {
-      margin-left: 23px;
-    }
+    &-vl {
+      &:after {
+        display: none !important;
 
-
-    &:first-child {
-      margin-left: 0;
-
-      &:before {
-        display: none;
+        @include res--laptop {
+          display: block;
+          top: 12px !important;
+        }
       }
     }
 
-    &:before {
-      @include pointer-none;
-      position: absolute;
-      top: 2px;
-      left: -10px;
-      display: block;
-      content: '';
-      width: 2px;
-      height: 12px;
-      background: rgba(63, 60, 60, 0.3);
+    &.col {
+      margin-left: 17px;
+      position: relative;
 
+      &:before {
+        @include pointer-none;
+        position: absolute;
+        top: 3px;
+        left: -10px;
+        vertical-align: bottom;
+        display: inline-block;
+        content: "";
+        width: 1px;
+        height: 10px;
+        background: rgba(63, 60, 60, 0.3);
+      }
 
       @include res--tablet {
-        left: -13px;
-        height: 14px;
+        margin-left: 20px;
       }
 
       @include res--laptop {
-        top: 4px;
+        margin-left: 18px;
+
+        &:before {
+          height: 12px;
+        }
       }
     }
+
+    &.col-vl {
+      @include res--laptop {
+        margin-right: 20px;
+        margin-top: 8px;
+
+        &:after {
+          @include pointer-none;
+          position: absolute;
+          top: 3px;
+          right: -10px;
+          vertical-align: bottom;
+          display: inline-block;
+          content: "";
+          width: 1px;
+          height: 12px;
+          background: rgba(63, 60, 60, 0.3);
+        }
+      }
+    }
+
+    // &:after {
+    //   @include pointer-none;
+    //   position: absolute;
+    //   top: 2px;
+    //   right: -10px;
+    //   display: block;
+    //   content: "";
+    //   width: 2px;
+    //   height: 10px;
+    //   background: rgba(63, 60, 60, 0.3);
+
+    //   @include res--tablet {
+    //     right: -12px;
+    //     top: 3px;
+    //     height: 11px;
+    //   }
+
+    //   @include res--laptop {
+    //     width: 1px;
+    //     right: -10px;
+    //   }
+    // }
   }
 }
