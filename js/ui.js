@@ -1,7 +1,7 @@
 (function () {
   var hyoduSVG = new Vivus("hyoduSVG", {
     type: "scenario-sync",
-    duration: 19,
+    duration: 22,
     start: "manual",
     forceRender: false,
     dashGap: 20
@@ -9,17 +9,17 @@
 
   var lineSVG01 = new Vivus("lines", {
     type: "async",
-    duration: 50,
+    duration: 130,
     start: "autostart",
     forceRender: false
   });
 
   var lineSVG02 = new Vivus("lines2", {
     type: "async",
-    duration: 80,
+    duration: 170,
     start: "autostart",
     forceRender: false,
-    dashGap: 50
+    dashGap: 75
   });
 
   var drawHyodu = function () {
@@ -33,39 +33,39 @@
   console.dir(wrapEl);
 
   var showLines = new TimelineMax()
-    .from(hyoduShadowEl, 0.9, {
+    .from(hyoduShadowEl, 0.8, {
       alpha: 0.2
-    })
+    }, 0.2)
     // 효두 로고 그리기
-    .add(drawHyodu, 0.15)
+    .add(drawHyodu, 0.6)
     .addLabel("logo")
     // 텍스트 등장
     .to(
       textEl.children[0],
-      0.75, {
+      0.9, {
         y: -15,
         alpha: 1,
         ease: Power1.easeOut
       },
-      "logo+=0.85"
+      "logo+=1.8"
     )
     .to(
       textEl.children[1],
-      0.75, {
+      0.9, {
         y: -15,
         alpha: 1,
         ease: Power1.easeOut
       },
-      "logo+=1.05"
+      "logo+=2.1"
     )
     .addLabel("text")
     //푸터 등장
     .to(
       footerEl,
-      0.65, {
+      0, {
         alpha: 1
       },
-      "text+=0.2"
+      "text+=0.15"
     );
 
 

@@ -88,22 +88,27 @@ body {
   height: 230px;
 
   @include res--tablet {
-    margin-top: -20px;
+    // margin-top: -20px;
     width: 320px;
     height: 320px;
   }
 
   @include res--laptop {
-    margin-top: -30px;
+    // margin-top: -30px;
     width: 380px;
     height: 380px;
   }
 
-  @include res--desktop {
-    margin-top: -30px;
+  @include res--laptopLG {
     width: 410px;
     height: 410px;
   }
+
+  @include res--desktop {
+    width: 450px;
+    height: 450px;
+  }
+
 
   .logo-text {
     @include text-hidden;
@@ -133,11 +138,11 @@ body {
   position: relative;
   z-index: 10;
   top: 10px;
-  margin-top: 40px;
+  margin-top: 60px;
   text-align: center;
 
   @include res--desktop {
-    margin-top: 30px;
+    margin-top: 70px;
   }
 
   .intro {
@@ -151,6 +156,10 @@ body {
 
     @include res--laptop {
       font-size: 19px;
+    }
+
+    @include res--laptopLG {
+      font-size: 21px;
     }
   }
 
@@ -183,6 +192,10 @@ body {
     @include res--laptop {
       font-size: 22px;
       line-height: 165%;
+    }
+
+    @include res--laptopLG {
+      font-size: 24px;
     }
   }
 }
